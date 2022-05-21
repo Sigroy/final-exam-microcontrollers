@@ -5,7 +5,38 @@
 #include <pic18f4550.h>
 #include "configbits.h"
 #include "lib4550.h"
+#include "lcd.h"
 #define _XTAL_FREQ 4000000
+
+typedef struct {
+    char unidades;
+    char decenas;
+    char centenas;
+    char millares;
+} DIGITS;
+
+DIGITS printNumber(unsigned int dato) {
+
+    DIGITS digitos = {48, 48, 48, 48};
+
+    for (dato = dato; dato > 999; dato = dato - 1000) {
+        digitos.millares++; //Incermentar los millares
+    }
+    for (dato = dato; dato > 99; dato = dato - 100) {
+        digitos.centenas++; //Incermentar las centenas
+    }
+    for (dato = dato; dato > 9; dato = dato - 10) {
+        digitos.decenas++; //Incermentar las decenas
+    }
+    for (dato = dato; dato > 0; dato = dato - 1) {
+        digitos.unidades++; //Incrementar las unidades
+    }
+
+    return digitos;
+}
+
+int contador = 0;
+DIGITS numeros;
 
 void main() {
     system_inicializacion();
@@ -14,11 +45,52 @@ void main() {
     BUZZER_CONF = OUTPUT;
     BUZZER_WRITE = 0;
 
+    keypad4x4init();
+    LCD lcd = {&PORTD, 5, 4, 0, 1, 2, 3}; // PORT, RS, EN, D4, D5, D6, D7
+    LCD_Init(lcd); //Inicializar LCD
+
+    LCD_Clear(); //LIMPIAR LCD
+    LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+    LCD_putrs(" HOLA MUNDO! "); //ESCRIBIR UNA CADENA DE CARACTERES
+
+    int dato = 0;
+    char contador = 0;
+    char entrada;
+    LCD_Set_Cursor(1, 0);
+
 
     while (1) {
+        entrada = keypadread();
+
+        while (entrada > 9) { //Se queda quí hasta que no se oprima un número de 1 a 9
+            entrada = keypadread();
+            __delay_ms(100);
+        }
+
+        numeros = printNumber(entrada);
+        LCD_putc(numeros.unidades); //mostrar en pantalla el número tecleado
+        __delay_ms(200);
+
+        contador++;
+        if (contador == 1) dato = entrada * 100;
+        if (contador == 2) dato = dato + (entrada * 10);
+        if (contador == 3) {
+            dato = dato + entrada;
+            LCD_Set_Cursor(1, 9);
+            dato = dato * 2; //dato ahora es una variable, como ejemplo, lo estamos multiplicando por 2
+            numeros = printNumber(dato);
+            LCD_putc(numeros.millares); //ver el número multiplicado x 2
+            LCD_putc(numeros.centenas);
+            LCD_putc(numeros.decenas);
+            LCD_putc(numeros.unidades);
+            __delay_ms(2000);
+            LCD_Set_Cursor(1, 0);
+            LCD_putrs("                "); //borrar toda la segunda línea de la pantalla
+            LCD_Set_Cursor(1, 0); //regresar el cursor a la primer posición de la segunda línea
+            contador = 0; //resetear contador
+        }
 
     }
-
 }
 
 void ONbuttonA_pressed() {
