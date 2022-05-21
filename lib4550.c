@@ -18,7 +18,7 @@ void __interrupt() myint(void) {
     every5ms();
     ONbuttonA_pressed();
     ONbuttonB_pressed();
-//    ONbuttonB_pressed();
+    //    ONbuttonB_pressed();
 
 
     INTCONbits.TMR0IF = 0; // Reseteamos la bandera de interrupción
@@ -113,7 +113,72 @@ void buzzer(int frec, long tiempo) {
     }
 }
 
+void keypad4x4init() {
+    PORTB_CONF = 0b11110000; //Configuramos los pins de salida para las filas (0) y los de entrada para las columnas (1)
+    INTCON2bits.RBPU = 0; //Activar PULL-UPS internos
+    PORTB_WRITE = 0;
+}
 
+char keypadread() {
+    char key[4][4] = {0, 0, 0, 0,
+        0, 0, 0, 0,
+        0, 0, 0, 0,
+        0, 0, 0, 0};
+
+    char value[4][4] = {1, 2, 3, 10,
+        4, 5, 6, 11,
+        7, 8, 9, 12,
+        15, 0, 14, 13};
+
+    LATBbits.LATB0 = 0;
+    LATBbits.LATB1 = 1;
+    LATBbits.LATB2 = 1;
+    LATBbits.LATB3 = 1;
+    key[0][0] = PORTBbits.RB4;
+    key[0][1] = PORTBbits.RB5;
+    key[0][2] = PORTBbits.RB6;
+    key[0][3] = PORTBbits.RB7;
+    __delay_ms(10);
+
+    LATBbits.LATB0 = 1;
+    LATBbits.LATB1 = 0;
+    LATBbits.LATB2 = 1;
+    LATBbits.LATB3 = 1;
+    key[1][0] = PORTBbits.RB4;
+    key[1][1] = PORTBbits.RB5;
+    key[1][2] = PORTBbits.RB6;
+    key[1][3] = PORTBbits.RB7;
+    __delay_ms(10);
+
+    LATBbits.LATB0 = 1;
+    LATBbits.LATB1 = 1;
+    LATBbits.LATB2 = 0;
+    LATBbits.LATB3 = 1;
+    key[2][0] = PORTBbits.RB4;
+    key[2][1] = PORTBbits.RB5;
+    key[2][2] = PORTBbits.RB6;
+    key[2][3] = PORTBbits.RB7;
+    __delay_ms(10);
+
+    LATBbits.LATB0 = 1;
+    LATBbits.LATB1 = 1;
+    LATBbits.LATB2 = 1;
+    LATBbits.LATB3 = 0;
+    key[3][0] = PORTBbits.RB4;
+    key[3][1] = PORTBbits.RB5;
+    key[3][2] = PORTBbits.RB6;
+    key[3][3] = PORTBbits.RB7;
+    __delay_ms(10);
+
+    char pressedkey = 100;
+    for (char x = 0; x < 4; x++) {
+        for (char y = 0; y < 4; y++) {
+            if (key[x][y] == 0) pressedkey = value[x][y];
+        }
+    }
+    return pressedkey;
+
+}
 //Velocidad fija de 1200 baudios
 
 void serialinit() {
