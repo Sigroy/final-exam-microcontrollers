@@ -1,0 +1,524 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$dist/default/production\Ordinario.X.production.o
+cinit CODE 0 284 284 16 1 2
+idloc IDLOC 5 200000 200000 8 1 1
+intcode_body CODE 0 26C 26C 18 1 2
+text0 CODE 0 2B0 2B0 14 1 2
+text1 CODE 0 1C2 1C2 34 1 2
+text2 CODE 0 24A 24A 22 1 2
+text3 CODE 0 222 222 28 1 2
+text4 CODE 0 29A 29A 16 1 2
+text5 CODE 0 1F6 1F6 2C 1 2
+text7 CODE 0 2C4 2C4 2 1 2
+text8 CODE 0 12 12 D8 1 2
+text9 CODE 0 EA EA D8 1 2
+temp COMRAM 1 10 10 1 1 1
+intcode CODE 0 8 8 6 1 2
+bssCOMRAM COMRAM 1 1 1 F 1 1
+config CONFIG 4 300000 300000 E 1 1
+$C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+idloc IDLOC 5 200000 200000 8 1 1
+init CODE 0 E E 4 1 2
+reset_vec CODE 0 0 0 4 1 2
+config CONFIG 4 300000 300000 E 1 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 60-7FF 1
+SFR F60-FFF 1
+BANK0 60-FF 1
+BANK1 100-1FF 1
+BANK2 200-2FF 1
+BANK3 300-3FF 1
+BANK4 400-4FF 1
+BANK5 500-5FF 1
+BANK6 600-6FF 1
+BANK7 700-7FF 1
+CONST 4-7 1
+CONST 2C6-7FFF 1
+SMALLCONST 800-7FFF 1
+CODE 4-7 1
+CODE 2C6-7FFF 1
+BIGRAM 11-7FF 1
+BIGSFR F60-FFF 1
+COMRAM 11-5F 1
+EEDATA F00000-F000FF 1
+MEDIUMCONST 800-7FFF 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/default/production\Ordinario.X.production.o
+8 intcode CODE >1892:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+8 intcode CODE >16:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+EA text9 CODE >24:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+EA text9 CODE >26:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+108 text9 CODE >27:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+10C text9 CODE >28:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+110 text9 CODE >32:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+12E text9 CODE >33:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+132 text9 CODE >34:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+13A text9 CODE >35:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+142 text9 CODE >39:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+176 text9 CODE >40:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+17A text9 CODE >47:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+19E text9 CODE >48:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+1A6 text9 CODE >49:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+1AE text9 CODE >53:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+1C0 text9 CODE >55:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+12 text8 CODE >59:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+12 text8 CODE >61:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+30 text8 CODE >62:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+34 text8 CODE >63:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+38 text8 CODE >67:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+56 text8 CODE >68:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+5A text8 CODE >69:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+62 text8 CODE >70:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+6A text8 CODE >74:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+9E text8 CODE >75:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+A2 text8 CODE >82:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+C6 text8 CODE >83:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+CE text8 CODE >84:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+D6 text8 CODE >89:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+E8 text8 CODE >91:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+2C4 text7 CODE >93:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+2C4 text7 CODE >95:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+26C intcode_body CODE >16:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+26E intcode_body CODE >18:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+272 intcode_body CODE >19:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+276 intcode_body CODE >20:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+27A intcode_body CODE >24:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+27C intcode_body CODE >25:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+280 intcode_body CODE >27:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1F6 text5 CODE >119:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1F6 text5 CODE >121:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1F8 text5 CODE >122:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1FA text5 CODE >125:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1FC text5 CODE >126:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1FE text5 CODE >127:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+200 text5 CODE >128:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+202 text5 CODE >131:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+204 text5 CODE >134:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+206 text5 CODE >135:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+208 text5 CODE >136:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+20A text5 CODE >137:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+20C text5 CODE >138:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+20E text5 CODE >141:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+210 text5 CODE >142:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+212 text5 CODE >143:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+214 text5 CODE >144:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+216 text5 CODE >145:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+218 text5 CODE >147:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+21C text5 CODE >148:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+220 text5 CODE >149:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+29A text4 CODE >172:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+29A text4 CODE >173:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+2A0 text4 CODE >174:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+2A4 text4 CODE >175:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+2A8 text4 CODE >176:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+2AC text4 CODE >177:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+2AE text4 CODE >179:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+222 text3 CODE >215:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+222 text3 CODE >217:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+226 text3 CODE >218:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+22A text3 CODE >220:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+22E text3 CODE >222:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+230 text3 CODE >223:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+232 text3 CODE >225:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+234 text3 CODE >228:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+238 text3 CODE >229:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+23A text3 CODE >230:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+23C text3 CODE >232:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+240 text3 CODE >233:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+242 text3 CODE >234:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+244 text3 CODE >236:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+246 text3 CODE >237:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+248 text3 CODE >239:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+24A text2 CODE >51:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+24A text2 CODE >52:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+24C text2 CODE >53:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+24E text2 CODE >54:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+250 text2 CODE >55:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+252 text2 CODE >56:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+254 text2 CODE >57:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+256 text2 CODE >58:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+258 text2 CODE >59:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+25A text2 CODE >60:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+25C text2 CODE >61:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+25E text2 CODE >62:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+260 text2 CODE >64:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+262 text2 CODE >65:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+264 text2 CODE >66:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+266 text2 CODE >67:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+26A text2 CODE >68:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1C2 text1 CODE >29:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1C2 text1 CODE >30:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1C6 text1 CODE >31:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1CA text1 CODE >33:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1CC text1 CODE >35:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1CE text1 CODE >37:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1D2 text1 CODE >38:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1D6 text1 CODE >39:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1DA text1 CODE >41:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1DC text1 CODE >43:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1E0 text1 CODE >44:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1E4 text1 CODE >45:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1E8 text1 CODE >46:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1EC text1 CODE >47:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1F0 text1 CODE >48:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+1F4 text1 CODE >49:C:\Users\sigfr\MPLABXProjects\Ordinario.X\lib4550.c
+2B0 text0 CODE >10:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+2B0 text0 CODE >11:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+2B4 text0 CODE >12:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+2B8 text0 CODE >14:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+2BA text0 CODE >15:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+2BC text0 CODE >18:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+2BC text0 CODE >20:C:\Users\sigfr\MPLABXProjects\Ordinario.X\ordinariomain.c
+284 cinit CODE >935:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+284 cinit CODE >937:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+284 cinit CODE >940:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+284 cinit CODE >987:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+288 cinit CODE >988:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+28A cinit CODE >989:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+28A cinit CODE >990:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+28C cinit CODE >991:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+28E cinit CODE >992:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+290 cinit CODE >998:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+290 cinit CODE >1000:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+292 cinit CODE >1001:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+294 cinit CODE >1002:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+296 cinit CODE >1003:C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__end_of_system_inicializacion 1F6 0 CODE 0 text1 dist/default/production\Ordinario.X.production.o
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Ordinario.X.production.o
+__end_of_serialinit 222 0 CODE 0 text5 dist/default/production\Ordinario.X.production.o
+__Hspace_0 800 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hspace_1 11 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hspace_2 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hspace_4 60000E 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_PWMinit 222 0 CODE 0 text3 dist/default/production\Ordinario.X.production.o
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/production\Ordinario.X.production.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Ordinario.X.production.o
+_ONbuttonA_pressed EA 0 CODE 0 text9 dist/default/production\Ordinario.X.production.o
+_tmr0init 24A 0 CODE 0 text2 dist/default/production\Ordinario.X.production.o
+__Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\Ordinario.X.production.o
+_LATA F89 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_LATB F8A 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+_main 2B0 0 CODE 0 text0 dist/default/production\Ordinario.X.production.o
+_tens B 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+_system_inicializacion 1C2 0 CODE 0 text1 dist/default/production\Ordinario.X.production.o
+btemp 10 0 COMRAM 1 temp dist/default/production\Ordinario.X.production.o
+start E 0 CODE 0 init C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Ordinario.X.production.o
+__end_of_tmr0init 26C 0 CODE 0 text2 dist/default/production\Ordinario.X.production.o
+__Hpowerup E 0 CODE 0 powerup dist/default/production\Ordinario.X.production.o
+_T0CONbits FD5 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+ttemp5 11 0 COMRAM 1 temp dist/default/production\Ordinario.X.production.o
+ttemp6 14 0 COMRAM 1 temp dist/default/production\Ordinario.X.production.o
+ttemp7 18 0 COMRAM 1 temp dist/default/production\Ordinario.X.production.o
+__accesstop 60 0 ABS 0 - C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+intlevel0 0 0 CODE 0 text C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+intlevel1 0 0 CODE 0 text C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+intlevel2 0 0 CODE 0 text C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+intlevel3 0 0 CODE 0 text C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\Ordinario.X.production.o
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Ordinario.X.production.o
+wtemp8 11 0 COMRAM 1 temp dist/default/production\Ordinario.X.production.o
+__Hifardata 0 0 CODE 0 ifardata dist/default/production\Ordinario.X.production.o
+__Hclrtext 0 0 ABS 0 clrtext dist/default/production\Ordinario.X.production.o
+_ADCON0 FC2 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_ADCON1 FC1 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_ADCON2 FC0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_ADRESH FC4 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_ADRESL FC3 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+_CCPR1L FBE 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_CCPR2L FBB 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\Ordinario.X.production.o
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\Ordinario.X.production.o
+_BAUDCONbits FB8 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\Ordinario.X.production.o
+__Hintcodelo E 0 CODE 0 intcodelo dist/default/production\Ordinario.X.production.o
+__Lintcodelo E 0 CODE 0 intcodelo dist/default/production\Ordinario.X.production.o
+start_initialization 284 0 CODE 0 cinit dist/default/production\Ordinario.X.production.o
+__end_of_ONbuttonB_pressed EA 0 CODE 0 text8 dist/default/production\Ordinario.X.production.o
+_OSCCON FD3 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\Ordinario.X.production.o
+_TRISAbits F92 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_TRISBbits F93 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_TRISCbits F94 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_TRISDbits F95 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_TRISEbits F96 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_ADCinit 29A 0 CODE 0 text4 dist/default/production\Ordinario.X.production.o
+___rparam_used 1 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_hundreds A 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+isa$xinst 0 0 ABS 0 - C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+__Hbank0 0 0 ABS 0 bank0 dist/default/production\Ordinario.X.production.o
+__Hbank1 0 0 ABS 0 bank1 dist/default/production\Ordinario.X.production.o
+__Hbank2 0 0 ABS 0 bank2 dist/default/production\Ordinario.X.production.o
+__Hbank3 0 0 ABS 0 bank3 dist/default/production\Ordinario.X.production.o
+__Hbank4 0 0 ABS 0 bank4 dist/default/production\Ordinario.X.production.o
+__Hbank5 0 0 ABS 0 bank5 dist/default/production\Ordinario.X.production.o
+__Hbank6 0 0 ABS 0 bank6 dist/default/production\Ordinario.X.production.o
+__Hbank7 0 0 ABS 0 bank7 dist/default/production\Ordinario.X.production.o
+__Hcinit 0 0 ABS 0 cinit dist/default/production\Ordinario.X.production.o
+__Hconst 0 0 CONST 0 const dist/default/production\Ordinario.X.production.o
+__Hidata 0 0 CODE 0 idata dist/default/production\Ordinario.X.production.o
+__Hidloc 200008 0 IDLOC 5 idloc dist/default/production\Ordinario.X.production.o
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\Ordinario.X.production.o
+__Hparam 0 0 COMRAM 1 rparam dist/default/production\Ordinario.X.production.o
+__Hrdata 0 0 COMRAM 1 rdata dist/default/production\Ordinario.X.production.o
+__Hstack 0 0 STACK 2 stack dist/default/production\Ordinario.X.production.o
+__Htext0 0 0 ABS 0 text0 dist/default/production\Ordinario.X.production.o
+__Htext1 0 0 ABS 0 text1 dist/default/production\Ordinario.X.production.o
+__Htext2 0 0 ABS 0 text2 dist/default/production\Ordinario.X.production.o
+__Htext3 0 0 ABS 0 text3 dist/default/production\Ordinario.X.production.o
+__Htext4 0 0 ABS 0 text4 dist/default/production\Ordinario.X.production.o
+__Htext5 0 0 ABS 0 text5 dist/default/production\Ordinario.X.production.o
+__Htext7 0 0 ABS 0 text7 dist/default/production\Ordinario.X.production.o
+__Htext8 0 0 ABS 0 text8 dist/default/production\Ordinario.X.production.o
+__Htext9 0 0 ABS 0 text9 dist/default/production\Ordinario.X.production.o
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Ordinario.X.production.o
+__Hbigram 0 0 ABS 0 bigram dist/default/production\Ordinario.X.production.o
+__Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\Ordinario.X.production.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+_UCFGbits F6F 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hcomram 0 0 ABS 0 comram dist/default/production\Ordinario.X.production.o
+__Hconfig 30000E 0 CONFIG 4 config dist/default/production\Ordinario.X.production.o
+__Lbank0 0 0 ABS 0 bank0 dist/default/production\Ordinario.X.production.o
+__Lbank1 0 0 ABS 0 bank1 dist/default/production\Ordinario.X.production.o
+__Lbank2 0 0 ABS 0 bank2 dist/default/production\Ordinario.X.production.o
+__Lbank3 0 0 ABS 0 bank3 dist/default/production\Ordinario.X.production.o
+__Lbank4 0 0 ABS 0 bank4 dist/default/production\Ordinario.X.production.o
+__Lbank5 0 0 ABS 0 bank5 dist/default/production\Ordinario.X.production.o
+__Lbank6 0 0 ABS 0 bank6 dist/default/production\Ordinario.X.production.o
+__Lbank7 0 0 ABS 0 bank7 dist/default/production\Ordinario.X.production.o
+__Lcinit 0 0 ABS 0 cinit dist/default/production\Ordinario.X.production.o
+__Lconst 0 0 CONST 0 const dist/default/production\Ordinario.X.production.o
+__Lidata 0 0 CODE 0 idata dist/default/production\Ordinario.X.production.o
+__Lidloc 0 0 IDLOC 5 idloc dist/default/production\Ordinario.X.production.o
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\Ordinario.X.production.o
+__Lparam 0 0 COMRAM 1 rparam dist/default/production\Ordinario.X.production.o
+__Lrdata 0 0 COMRAM 1 rdata dist/default/production\Ordinario.X.production.o
+__Lstack 0 0 STACK 2 stack dist/default/production\Ordinario.X.production.o
+__Ltext0 0 0 ABS 0 text0 dist/default/production\Ordinario.X.production.o
+__Ltext1 0 0 ABS 0 text1 dist/default/production\Ordinario.X.production.o
+__Ltext2 0 0 ABS 0 text2 dist/default/production\Ordinario.X.production.o
+__Ltext3 0 0 ABS 0 text3 dist/default/production\Ordinario.X.production.o
+__Ltext4 0 0 ABS 0 text4 dist/default/production\Ordinario.X.production.o
+__Ltext5 0 0 ABS 0 text5 dist/default/production\Ordinario.X.production.o
+__Ltext7 0 0 ABS 0 text7 dist/default/production\Ordinario.X.production.o
+__Ltext8 0 0 ABS 0 text8 dist/default/production\Ordinario.X.production.o
+__Ltext9 0 0 ABS 0 text9 dist/default/production\Ordinario.X.production.o
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/production\Ordinario.X.production.o
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\Ordinario.X.production.o
+_PORTCbits F82 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_INTCONbits FF2 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Habs1 0 0 ABS 0 abs1 dist/default/production\Ordinario.X.production.o
+__Hdata 0 0 ABS 0 data dist/default/production\Ordinario.X.production.o
+__Hheap 0 0 HEAP 7 heap dist/default/production\Ordinario.X.production.o
+__Hinit 12 0 CODE 0 init dist/default/production\Ordinario.X.production.o
+__Hrbit 0 0 COMRAM 1 rbit dist/default/production\Ordinario.X.production.o
+__Hrbss 0 0 COMRAM 1 rbss dist/default/production\Ordinario.X.production.o
+__Htemp 11 0 COMRAM 1 temp dist/default/production\Ordinario.X.production.o
+__Htext 0 0 ABS 0 text dist/default/production\Ordinario.X.production.o
+__Labs1 0 0 ABS 0 abs1 dist/default/production\Ordinario.X.production.o
+__Ldata 0 0 ABS 0 data dist/default/production\Ordinario.X.production.o
+__Lheap 0 0 HEAP 7 heap dist/default/production\Ordinario.X.production.o
+__Linit E 0 CODE 0 init dist/default/production\Ordinario.X.production.o
+__Lrbit 0 0 COMRAM 1 rbit dist/default/production\Ordinario.X.production.o
+__Lrbss 0 0 COMRAM 1 rbss dist/default/production\Ordinario.X.production.o
+__Ltemp 10 0 COMRAM 1 temp dist/default/production\Ordinario.X.production.o
+__Ltext 0 0 ABS 0 text dist/default/production\Ordinario.X.production.o
+_buttonApressedcounter2 5 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+int$flags 10 0 COMRAM 1 temp dist/default/production\Ordinario.X.production.o
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Ordinario.X.production.o
+__Hintret 0 0 ABS 0 intret dist/default/production\Ordinario.X.production.o
+__Hirdata 0 0 CODE 0 irdata dist/default/production\Ordinario.X.production.o
+_PR2 FCB 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__S0 2C6 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__S1 11 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__S4 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__S5 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_ONbuttonB_pressed 12 0 CODE 0 text8 dist/default/production\Ordinario.X.production.o
+_UCONbits F6D 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_buttonBpressedcounter2 1 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Ordinario.X.production.o
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\Ordinario.X.production.o
+int_func 26C 0 CODE 0 intcode_body dist/default/production\Ordinario.X.production.o
+__Lintentry 0 0 ABS 0 intentry dist/default/production\Ordinario.X.production.o
+__Hramtop 800 0 RAM 0 ramtop dist/default/production\Ordinario.X.production.o
+__Hrparam 0 0 COMRAM 1 rparam dist/default/production\Ordinario.X.production.o
+__activetblptr 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hstruct 0 0 COMRAM 1 struct dist/default/production\Ordinario.X.production.o
+_buttonBpressedcounter 3 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+_RCSTAbits FAB 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__pintcode_body 26C 0 CODE 0 intcode_body dist/default/production\Ordinario.X.production.o
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\Ordinario.X.production.o
+__Lbigram 0 0 ABS 0 bigram dist/default/production\Ordinario.X.production.o
+__Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\Ordinario.X.production.o
+__Lcomram 0 0 ABS 0 comram dist/default/production\Ordinario.X.production.o
+__Lconfig 0 0 CONFIG 4 config dist/default/production\Ordinario.X.production.o
+_LATEbits F8D 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_buttonAflag F 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+_buttonBflag E 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/production\Ordinario.X.production.o
+__Lfardata 0 0 FARRAM 0 fardata dist/default/production\Ordinario.X.production.o
+isa$std 1 0 ABS 0 - C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+__end_of_PWMinit 24A 0 CODE 0 text3 dist/default/production\Ordinario.X.production.o
+stackhi 0 0 ABS 0 - C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+stacklo 0 0 ABS 0 - C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+__Lintcode 8 0 CODE 0 intcode dist/default/production\Ordinario.X.production.o
+__Lintret 0 0 ABS 0 intret dist/default/production\Ordinario.X.production.o
+__Lirdata 0 0 CODE 0 irdata dist/default/production\Ordinario.X.production.o
+_ADCON0bits FC2 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Lspace_0 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Lspace_1 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Lspace_2 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Lspace_4 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+_PIR1bits F9E 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\Ordinario.X.production.o
+end_of_initialization 290 0 CODE 0 cinit dist/default/production\Ordinario.X.production.o
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\Ordinario.X.production.o
+__Hintentry 0 0 ABS 0 intentry dist/default/production\Ordinario.X.production.o
+_RCONbits FD0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\Ordinario.X.production.o
+__Lramtop 800 0 RAM 0 ramtop dist/default/production\Ordinario.X.production.o
+__Lrparam 0 0 COMRAM 1 rparam dist/default/production\Ordinario.X.production.o
+__pcinit 284 0 CODE 0 cinit dist/default/production\Ordinario.X.production.o
+__ptext0 2B0 0 CODE 0 text0 dist/default/production\Ordinario.X.production.o
+__ptext1 1C2 0 CODE 0 text1 dist/default/production\Ordinario.X.production.o
+__ptext2 24A 0 CODE 0 text2 dist/default/production\Ordinario.X.production.o
+__ptext3 222 0 CODE 0 text3 dist/default/production\Ordinario.X.production.o
+__ptext4 29A 0 CODE 0 text4 dist/default/production\Ordinario.X.production.o
+__ptext5 1F6 0 CODE 0 text5 dist/default/production\Ordinario.X.production.o
+__ptext7 2C4 0 CODE 0 text7 dist/default/production\Ordinario.X.production.o
+__ptext8 12 0 CODE 0 text8 dist/default/production\Ordinario.X.production.o
+__ptext9 EA 0 CODE 0 text9 dist/default/production\Ordinario.X.production.o
+__Lstruct 0 0 COMRAM 1 struct dist/default/production\Ordinario.X.production.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+__Lpowerup E 0 CODE 0 powerup dist/default/production\Ordinario.X.production.o
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\Ordinario.X.production.o
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\Ordinario.X.production.o
+_every5ms 2C4 0 CODE 0 text7 dist/default/production\Ordinario.X.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+___heap_lo 0 0 ABS 0 - C:\Users\sigfr\AppData\Local\Temp\xcAs14h4.o
+___param_bank 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\Ordinario.X.production.o
+__end_of__initialization 290 0 CODE 0 cinit dist/default/production\Ordinario.X.production.o
+__end_of_every5ms 2C6 0 CODE 0 text7 dist/default/production\Ordinario.X.production.o
+__Libigdata 0 0 CODE 0 ibigdata dist/default/production\Ordinario.X.production.o
+__Lclrtext 0 0 ABS 0 clrtext dist/default/production\Ordinario.X.production.o
+__end_of_ONbuttonA_pressed 1C2 0 CODE 0 text9 dist/default/production\Ordinario.X.production.o
+_serialinit 1F6 0 CODE 0 text5 dist/default/production\Ordinario.X.production.o
+__pcstackCOMRAM 0 0 COMRAM 1 cstackCOMRAM dist/default/production\Ordinario.X.production.o
+_TXSTAbits FAC 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__end_of_main 2C4 0 CODE 0 text0 dist/default/production\Ordinario.X.production.o
+_CCP2CONbits FBA 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__pintcode 8 0 CODE 0 intcode dist/default/production\Ordinario.X.production.o
+_RCREG FAE 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__end_of_myint 284 0 CODE 0 intcode_body dist/default/production\Ordinario.X.production.o
+_SPBRG FAF 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_TMR0L FD6 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_TRISA F92 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_TRISB F93 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_TRISD F95 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_TXREG FAD 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__HRAM 0 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hbss 0 0 RAM 1 bss dist/default/production\Ordinario.X.production.o
+__Hram 0 0 ABS 0 ram dist/default/production\Ordinario.X.production.o
+__Hsfr 0 0 ABS 0 sfr dist/default/production\Ordinario.X.production.o
+__LRAM 1 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Lbss 0 0 RAM 1 bss dist/default/production\Ordinario.X.production.o
+__Lram 0 0 ABS 0 ram dist/default/production\Ordinario.X.production.o
+__Lsfr 0 0 ABS 0 sfr dist/default/production\Ordinario.X.production.o
+_myint 8 0 CODE 0 intcode dist/default/production\Ordinario.X.production.o
+_units C 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+_CCP1CON FBD 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_CCP2CON FBA 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+_thousands 9 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+_buttonApressedcounter 7 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+__initialization 284 0 CODE 0 cinit dist/default/production\Ordinario.X.production.o
+_T2CONbits FCA 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hfardata 0 0 FARRAM 0 fardata dist/default/production\Ordinario.X.production.o
+_digitcounter D 0 COMRAM 1 bssCOMRAM dist/default/production\Ordinario.X.production.o
+__Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\Ordinario.X.production.o
+__end_of_ADCinit 2B0 0 CODE 0 text4 dist/default/production\Ordinario.X.production.o
+__Lifardata 0 0 CODE 0 ifardata dist/default/production\Ordinario.X.production.o
+_CCP1CONbits FBD 0 ABS 0 - dist/default/production\Ordinario.X.production.o
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\Ordinario.X.production.o
+__Hintcode E 0 CODE 0 intcode dist/default/production\Ordinario.X.production.o
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+reset_vec 0 0 0 4 1
+intcode 0 8 8 2BE 1
+bssCOMRAM 1 1 1 10 1
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES
