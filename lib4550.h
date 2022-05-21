@@ -102,6 +102,8 @@ void PWMinit(void);
 void system_inicializacion(void);
 void pinMode(char puerto, char modo);
 void buzzer(int frec, long tiempo);
+void keypad4x4init(void);
+char keypadread(void);
 void serialinit(void);
 void serialout(char datax);
 char serialin(void);
