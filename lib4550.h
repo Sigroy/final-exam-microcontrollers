@@ -18,7 +18,8 @@
 #define PORTD_WRITE LATD
 #define PORTD_READ PORTD
 
-#define LED_BUILTIN LATAbits.LATA4
+#define LED_VERDE LATAbits.LATA4
+#define LED_ROJO LATEbits.LATE1
 #define buttonA PORTCbits.RC4
 #define buttonB PORTCbits.RC5
 #define botonReset PORTEbits.RE3
