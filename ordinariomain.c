@@ -82,7 +82,7 @@ void password() {
         buzzer(1200, 80);
         LCD_putc(42);
         passwordCompleta[0] = input;
-        __delay_ms(500);
+        __delay_ms(1000);
 
         input = keypadread();
         while (input > 9) {
@@ -92,7 +92,7 @@ void password() {
         buzzer(1200, 80);
         LCD_putc(42);
         passwordCompleta[1] = input;
-        __delay_ms(500);
+        __delay_ms(1000);
 
         input = keypadread();
         while (input > 9) {
@@ -102,7 +102,7 @@ void password() {
         buzzer(1200, 80);
         LCD_putc(42);
         passwordCompleta[2] = input;
-        __delay_ms(500);
+        __delay_ms(1000);
 
         input = keypadread();
         while (input > 9) {
@@ -112,7 +112,7 @@ void password() {
         buzzer(1200, 80);
         LCD_putc(42);
         passwordCompleta[3] = input;
-        __delay_ms(500);
+        __delay_ms(1000);
 
         input = keypadread();
         while (input > 9) {
@@ -122,7 +122,7 @@ void password() {
         buzzer(1200, 80);
         LCD_putc(42);
         passwordCompleta[4] = input;
-        __delay_ms(500);
+        __delay_ms(1000);
 
         if (passwordCompleta[0] == passwordCorrecta[0] && passwordCompleta[1] == passwordCorrecta[1] && passwordCompleta[2] == passwordCorrecta[2] && passwordCompleta[3] == passwordCorrecta[3] && passwordCompleta[4] == passwordCorrecta[4]) {
             LCD_Clear();
@@ -154,13 +154,13 @@ void modoAbierto() {
     LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
     LCD_putrs("ABIERTO"); //ESCRIBIR UNA CADENA DE CARACTERES
 
-    analogWrite(_PC1, 127);
+    analogWrite(_PC2, 127);
 
     entrada = keypadread();
 
     while (entrada > 14) { //Se queda quí hasta que no se oprima un número de 1 a 15
         entrada = keypadread();
-        __delay_ms(100);
+        __delay_ms(250);
     }
 
     if (entrada == 14) {
@@ -177,7 +177,7 @@ void modoArmado() {
     LCD_putrs("ARMADO"); //ESCRIBIR UNA CADENA DE CARACTERES
     __delay_ms(100);
 
-    analogWrite(_PC1, 255);
+    analogWrite(_PC2, 255);
 
     entrada = keypadread();
     
