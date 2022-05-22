@@ -18,7 +18,7 @@ typedef struct {
 char passwordCorrecta[] = {'6', '2', '7', '0', '3'};
 
 char modo = 1; // Modo abierto inicial
-char entrada;
+char entrada = 0;
 char bandera = 1;
 
 DIGITS printNumber(unsigned int dato) {
@@ -44,37 +44,66 @@ DIGITS printNumber(unsigned int dato) {
 int contador = 0;
 DIGITS numeros;
 
+void password() {
+    char input = 0;
+    char passwordCompleta[5];
+    DIGITS passwordEntrada = {0, 0, 0, 0};
+    LCD_Set_Cursor(1, 4);
+
+    input = keypadread();
+
+    while (input > 9) {
+        input = keypadread();
+    }
+
+    passwordEntrada = printNumber(input);
+
+    buzzer(1200, 80);
+    LCD_putc(42);
+    passwordCompleta[0] = input;
+    __delay_ms(500);
+
+    if (passwordCompleta[0] == passwordCorrecta[0] && passwordCompleta[1] == passwordCorrecta[1] && passwordCompleta[2] == passwordCorrecta[2] && passwordCompleta[3] == passwordCorrecta[3] && passwordCompleta[4] == passwordCorrecta[4]) {
+        modo = 1;
+    }
+}
+
 void modoAbierto() {
     LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
     LCD_putrs("      ABIERTO "); //ESCRIBIR UNA CADENA DE CARACTERES
 
+    analogWrite(_PC1, 190);
+
     entrada = keypadread();
 
-    while (entrada > 15) { //Se queda quí hasta que no se oprima un número de 1 a 9
+    while (entrada > 14) { //Se queda quí hasta que no se oprima un número de 1 a 15
         entrada = keypadread();
         __delay_ms(100);
     }
 
     if (entrada == 14) {
+        buzzer(1200, 80);
         LCD_Clear(); //LIMPIAR LCD
         LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
         LCD_putrs("      ARMADO "); //ESCRIBIR UNA CADENA DE CARACTERES
         modo = 0;
+        __delay_ms(550);
     }
 }
 
 void modoArmado() {
 
-    while (entrada > 15) { //Se queda aquí hasta que no se oprima un número de 1 a 9
-        entrada = keypadread();
-        __delay_ms(100);
-    }
+    analogWrite(_PC1, 250);
 
-    if (entrada == 14) {
+    entrada = keypadread();
+
+    if (entrada == 15) {
+        buzzer(1200, 80);
         LCD_Clear(); //LIMPIAR LCD
         LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
         LCD_putrs("  Ingrese PWD: "); //ESCRIBIR UNA CADENA DE CARACTERES
 
+        password();
     }
 }
 
