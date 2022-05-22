@@ -21,6 +21,7 @@ char passwordCorrecta[] = {0b00000110, 0b00000010, 0b00000111, 0b00000000, 0b000
 char modo = 1; // Modo abierto inicial
 char entrada = 0;
 char bandera = 1;
+int contador = 0;
 
 DIGITS printNumber(unsigned int dato) {
 
@@ -41,74 +42,91 @@ DIGITS printNumber(unsigned int dato) {
 
     return digitos;
 }
-
-int contador = 0;
 DIGITS numeros;
 
 void password() {
-    char input = 0;
-    char passwordCompleta[5];
-    DIGITS passwordEntrada = {0, 0, 0, 0};
-    LCD_Set_Cursor(1, 4);
-
-    input = keypadread();
-    while (input > 9) {
-        input = keypadread();
-    }
-    passwordEntrada = printNumber(input);
-    buzzer(1200, 80);
-    LCD_putc(42);
-    passwordCompleta[0] = input;
-    __delay_ms(500);
-
-    input = keypadread();
-    while (input > 9) {
-        input = keypadread();
-    }
-    passwordEntrada = printNumber(input);
-    buzzer(1200, 80);
-    LCD_putc(42);
-    passwordCompleta[1] = input;
-    __delay_ms(500);
-
-    input = keypadread();
-    while (input > 9) {
-        input = keypadread();
-    }
-    passwordEntrada = printNumber(input);
-    buzzer(1200, 80);
-    LCD_putc(42);
-    passwordCompleta[2] = input;
-    __delay_ms(500);
-
-    input = keypadread();
-    while (input > 9) {
-        input = keypadread();
-    }
-    passwordEntrada = printNumber(input);
-    buzzer(1200, 80);
-    LCD_putc(42);
-    passwordCompleta[3] = input;
-    __delay_ms(500);
-
-    input = keypadread();
-    while (input > 9) {
-        input = keypadread();
-    }
-    passwordEntrada = printNumber(input);
-    buzzer(1200, 80);
-    LCD_putc(42);
-    passwordCompleta[4] = input;
-    __delay_ms(500);
-
-    if (passwordCompleta[0] == passwordCorrecta[0] && passwordCompleta[1] == passwordCorrecta[1] && passwordCompleta[2] == passwordCorrecta[2] && passwordCompleta[3] == passwordCorrecta[3] && passwordCompleta[4] == passwordCorrecta[4]) {
-        modo = 1;
-    } else {
-        LCD_Clear();
+    while (contador < 3 && modo == 0) {
+        LCD_Clear(); //LIMPIAR LCD
+        LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+        LCD_putrs("  Ingrese PWD: "); //ESCRIBIR UNA CADENA DE CARACTERES
+        char input = 0;
+        char passwordCompleta[5];
+        DIGITS passwordEntrada = {0, 0, 0, 0};
         LCD_Set_Cursor(1, 4);
-        LCD_putrs("INCORRECTO");
-        __delay_ms(2000);
-        LCD_Clear();
+
+        input = keypadread();
+        while (input > 9) {
+            input = keypadread();
+        }
+        passwordEntrada = printNumber(input);
+        buzzer(1200, 80);
+        LCD_putc(42);
+        passwordCompleta[0] = input;
+        __delay_ms(500);
+
+        input = keypadread();
+        while (input > 9) {
+            input = keypadread();
+        }
+        passwordEntrada = printNumber(input);
+        buzzer(1200, 80);
+        LCD_putc(42);
+        passwordCompleta[1] = input;
+        __delay_ms(500);
+
+        input = keypadread();
+        while (input > 9) {
+            input = keypadread();
+        }
+        passwordEntrada = printNumber(input);
+        buzzer(1200, 80);
+        LCD_putc(42);
+        passwordCompleta[2] = input;
+        __delay_ms(500);
+
+        input = keypadread();
+        while (input > 9) {
+            input = keypadread();
+        }
+        passwordEntrada = printNumber(input);
+        buzzer(1200, 80);
+        LCD_putc(42);
+        passwordCompleta[3] = input;
+        __delay_ms(500);
+
+        input = keypadread();
+        while (input > 9) {
+            input = keypadread();
+        }
+        passwordEntrada = printNumber(input);
+        buzzer(1200, 80);
+        LCD_putc(42);
+        passwordCompleta[4] = input;
+        __delay_ms(500);
+
+        if (passwordCompleta[0] == passwordCorrecta[0] && passwordCompleta[1] == passwordCorrecta[1] && passwordCompleta[2] == passwordCorrecta[2] && passwordCompleta[3] == passwordCorrecta[3] && passwordCompleta[4] == passwordCorrecta[4]) {
+            LCD_Clear();
+            LCD_Set_Cursor(1, 4);
+            LCD_putrs("CORRECTO");
+            modo = 1;
+            __delay_ms(2000);
+            LCD_Clear();
+            contador == 0;
+        } else {
+            LCD_Clear();
+            LCD_Set_Cursor(1, 4);
+            LCD_putrs("INCORRECTO");
+            __delay_ms(2000);
+            LCD_Clear();
+            contador++;
+
+            if (contador == 3) {
+                LCD_Clear();
+                LCD_Set_Cursor(1, 4);
+                LCD_putrs("ALERTA");
+                __delay_ms(2000);
+            }
+        }
     }
 }
 
@@ -143,10 +161,6 @@ void modoArmado() {
 
     if (entrada == 14) {
         buzzer(1200, 80);
-        LCD_Clear(); //LIMPIAR LCD
-        LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
-        LCD_putrs("  Ingrese PWD: "); //ESCRIBIR UNA CADENA DE CARACTERES
-
         password();
     }
 }
