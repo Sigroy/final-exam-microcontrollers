@@ -154,7 +154,7 @@ void modoAbierto() {
     LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
     LCD_putrs("ABIERTO"); //ESCRIBIR UNA CADENA DE CARACTERES
 
-    analogWrite(_PC1, 190);
+    analogWrite(_PC1, 127);
 
     entrada = keypadread();
 
@@ -177,7 +177,7 @@ void modoArmado() {
     LCD_putrs("ARMADO"); //ESCRIBIR UNA CADENA DE CARACTERES
     __delay_ms(100);
 
-    analogWrite(_PC1, 250);
+    analogWrite(_PC1, 255);
 
     entrada = keypadread();
     
