@@ -129,12 +129,15 @@ void main() {
     while (1) {
 
         if (modo == 1) {
-            pinMode(_PE1, OUTPUT);
-            LED_ROJO = 1;
+            LED_VERDE = 1;
+            LED_ROJO = 0;
             modoAbierto();
         }
 
         if (modo == 0) {
+            pinMode(_PE1, OUTPUT);
+            LED_VERDE = 0;
+            LED_ROJO = 1;
             modoArmado();
         }
 
