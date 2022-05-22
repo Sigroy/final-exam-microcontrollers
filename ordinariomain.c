@@ -15,6 +15,12 @@ typedef struct {
     char millares;
 } DIGITS;
 
+char passwordCorrecta[] = {'6', '2', '7', '0', '3'};
+
+char modo = 1; // Modo abierto inicial
+char entrada;
+char bandera = 1;
+
 DIGITS printNumber(unsigned int dato) {
 
     DIGITS digitos = {48, 48, 48, 48};
@@ -38,6 +44,40 @@ DIGITS printNumber(unsigned int dato) {
 int contador = 0;
 DIGITS numeros;
 
+void modoAbierto() {
+    LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+    LCD_putrs("      ABIERTO "); //ESCRIBIR UNA CADENA DE CARACTERES
+
+    entrada = keypadread();
+
+    while (entrada > 15) { //Se queda quí hasta que no se oprima un número de 1 a 9
+        entrada = keypadread();
+        __delay_ms(100);
+    }
+
+    if (entrada == 14) {
+        LCD_Clear(); //LIMPIAR LCD
+        LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+        LCD_putrs("      ARMADO "); //ESCRIBIR UNA CADENA DE CARACTERES
+        modo = 0;
+    }
+}
+
+void modoArmado() {
+
+    while (entrada > 15) { //Se queda aquí hasta que no se oprima un número de 1 a 9
+        entrada = keypadread();
+        __delay_ms(100);
+    }
+
+    if (entrada == 14) {
+        LCD_Clear(); //LIMPIAR LCD
+        LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+        LCD_putrs("  Ingrese PWD: "); //ESCRIBIR UNA CADENA DE CARACTERES
+
+    }
+}
+
 void main() {
     system_inicializacion();
     serialinit();
@@ -45,50 +85,50 @@ void main() {
     BUZZER_CONF = OUTPUT;
     BUZZER_WRITE = 0;
 
+    ADCinit();
+
     keypad4x4init();
     LCD lcd = {&PORTD, 5, 4, 0, 1, 2, 3}; // PORT, RS, EN, D4, D5, D6, D7
     LCD_Init(lcd); //Inicializar LCD
-
     LCD_Clear(); //LIMPIAR LCD
-    LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
-    LCD_putrs(" HOLA MUNDO! "); //ESCRIBIR UNA CADENA DE CARACTERES
 
     int dato = 0;
     char contador = 0;
-    char entrada;
     LCD_Set_Cursor(1, 0);
 
 
     while (1) {
-        entrada = keypadread();
 
-        while (entrada > 9) { //Se queda quí hasta que no se oprima un número de 1 a 9
-            entrada = keypadread();
-            __delay_ms(100);
+        if (modo == 1) {
+            modoAbierto();
         }
 
-        numeros = printNumber(entrada);
-        LCD_putc(numeros.unidades); //mostrar en pantalla el número tecleado
-        __delay_ms(200);
-
-        contador++;
-        if (contador == 1) dato = entrada * 100;
-        if (contador == 2) dato = dato + (entrada * 10);
-        if (contador == 3) {
-            dato = dato + entrada;
-            LCD_Set_Cursor(1, 9);
-            dato = dato * 2; //dato ahora es una variable, como ejemplo, lo estamos multiplicando por 2
-            numeros = printNumber(dato);
-            LCD_putc(numeros.millares); //ver el número multiplicado x 2
-            LCD_putc(numeros.centenas);
-            LCD_putc(numeros.decenas);
-            LCD_putc(numeros.unidades);
-            __delay_ms(2000);
-            LCD_Set_Cursor(1, 0);
-            LCD_putrs("                "); //borrar toda la segunda línea de la pantalla
-            LCD_Set_Cursor(1, 0); //regresar el cursor a la primer posición de la segunda línea
-            contador = 0; //resetear contador
+        if (modo == 0) {
+            modoArmado();
         }
+
+        //        numeros = printNumber(entrada);
+        //        LCD_putc(numeros.unidades); //mostrar en pantalla el número tecleado
+        //        __delay_ms(200);
+        //
+        //        contador++;
+        //        if (contador == 1) dato = entrada * 100;
+        //        if (contador == 2) dato = dato + (entrada * 10);
+        //        if (contador == 3) {
+        //            dato = dato + entrada;
+        //            LCD_Set_Cursor(1, 9);
+        //            dato = dato * 2; //dato ahora es una variable, como ejemplo, lo estamos multiplicando por 2
+        //            numeros = printNumber(dato);
+        //            LCD_putc(numeros.millares); //ver el número multiplicado x 2
+        //            LCD_putc(numeros.centenas);
+        //            LCD_putc(numeros.decenas);
+        //            LCD_putc(numeros.unidades);
+        //            __delay_ms(2000);
+        //            LCD_Set_Cursor(1, 0);
+        //            LCD_putrs("                "); //borrar toda la segunda línea de la pantalla
+        //            LCD_Set_Cursor(1, 0); //regresar el cursor a la primer posición de la segunda línea
+        //            contador = 0; //resetear contador
+        //        }
 
     }
 }
