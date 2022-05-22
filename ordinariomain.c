@@ -15,7 +15,8 @@ typedef struct {
     char millares;
 } DIGITS;
 
-char passwordCorrecta[] = {'6', '2', '7', '0', '3'};
+//                             6           2           7           0           3
+char passwordCorrecta[] = {0b00000110, 0b00000010, 0b00000111, 0b00000000, 0b00000011};
 
 char modo = 1; // Modo abierto inicial
 char entrada = 0;
@@ -51,16 +52,53 @@ void password() {
     LCD_Set_Cursor(1, 4);
 
     input = keypadread();
-
     while (input > 9) {
         input = keypadread();
     }
-
     passwordEntrada = printNumber(input);
-
     buzzer(1200, 80);
     LCD_putc(42);
     passwordCompleta[0] = input;
+    __delay_ms(500);
+
+    input = keypadread();
+    while (input > 9) {
+        input = keypadread();
+    }
+    passwordEntrada = printNumber(input);
+    buzzer(1200, 80);
+    LCD_putc(42);
+    passwordCompleta[1] = input;
+    __delay_ms(500);
+
+    input = keypadread();
+    while (input > 9) {
+        input = keypadread();
+    }
+    passwordEntrada = printNumber(input);
+    buzzer(1200, 80);
+    LCD_putc(42);
+    passwordCompleta[2] = input;
+    __delay_ms(500);
+
+    input = keypadread();
+    while (input > 9) {
+        input = keypadread();
+    }
+    passwordEntrada = printNumber(input);
+    buzzer(1200, 80);
+    LCD_putc(42);
+    passwordCompleta[3] = input;
+    __delay_ms(500);
+
+    input = keypadread();
+    while (input > 9) {
+        input = keypadread();
+    }
+    passwordEntrada = printNumber(input);
+    buzzer(1200, 80);
+    LCD_putc(42);
+    passwordCompleta[4] = input;
     __delay_ms(500);
 
     if (passwordCompleta[0] == passwordCorrecta[0] && passwordCompleta[1] == passwordCorrecta[1] && passwordCompleta[2] == passwordCorrecta[2] && passwordCompleta[3] == passwordCorrecta[3] && passwordCompleta[4] == passwordCorrecta[4]) {
@@ -97,7 +135,7 @@ void modoArmado() {
 
     entrada = keypadread();
 
-    if (entrada == 15) {
+    if (entrada == 14) {
         buzzer(1200, 80);
         LCD_Clear(); //LIMPIAR LCD
         LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
