@@ -16,12 +16,17 @@ typedef struct {
 } DIGITS;
 
 //                             6           2           7           0           3
-char passwordCorrecta[] = {0b00000110, 0b00000010, 0b00000111, 0b00000000, 0b00000011};
+char passwordCorrecta[] = {0b00000110, 0b00000010, 0b00000111, 0b00000000, 0b00000011}; // Nuestra contraseña, 03 al final
+
+//                   01  02  03  04  05  06  07  08  09  10
+char cuenta1[] = {0, 48, 48, 48, 48, 48, 48, 48, 48, 48, 49};
+char cuenta2[] = {0, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48};
 
 char modo = 1; // Modo abierto inicial
-char entrada = 0;
-char bandera = 1;
-int contador = 0;
+char entrada = 0; // Entrada del keypad
+int contador = 0; // Contador para los intentos de la contraseña
+char bandera = 0;
+char banderaPassword = 1;
 
 DIGITS printNumber(unsigned int dato) {
 
@@ -44,11 +49,26 @@ DIGITS printNumber(unsigned int dato) {
 }
 DIGITS numeros;
 
+void cuentaBloqueado() {
+    LCD_Clear(); //LIMPIAR LCD
+    LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+    LCD_putrs("BLOQUEADO"); //ESCRIBIR UNA CADENA DE CARACTERES
+    for (char i = 10; i > 0; i--) {
+        LCD_Set_Cursor(1, 6);
+        LCD_putc(cuenta1[i]);
+        LCD_Set_Cursor(1, 7);
+        LCD_putc(cuenta2[i]);
+        __delay_ms(1000);
+    }
+    LCD_Clear();
+    banderaPassword = 0;
+}
+
 void password() {
-    while (contador < 3 && modo == 0) {
+    while (contador < 3 && modo == 0 && banderaPassword == 1) {
         LCD_Clear(); //LIMPIAR LCD
-        LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
-        LCD_putrs("  Ingrese PWD: "); //ESCRIBIR UNA CADENA DE CARACTERES
+        LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+        LCD_putrs("Ingrese PWD:"); //ESCRIBIR UNA CADENA DE CARACTERES
         char input = 0;
         char passwordCompleta[5];
         DIGITS passwordEntrada = {0, 0, 0, 0};
@@ -106,33 +126,37 @@ void password() {
 
         if (passwordCompleta[0] == passwordCorrecta[0] && passwordCompleta[1] == passwordCorrecta[1] && passwordCompleta[2] == passwordCorrecta[2] && passwordCompleta[3] == passwordCorrecta[3] && passwordCompleta[4] == passwordCorrecta[4]) {
             LCD_Clear();
-            LCD_Set_Cursor(1, 4);
+            LCD_Set_Cursor(0, 4);
             LCD_putrs("CORRECTO");
             modo = 1;
             __delay_ms(2000);
             LCD_Clear();
-            contador == 0;
+            contador = 0;
+            bandera = 1;
         } else {
             LCD_Clear();
-            LCD_Set_Cursor(1, 4);
+            LCD_Set_Cursor(0, 4);
             LCD_putrs("INCORRECTO");
             __delay_ms(2000);
             LCD_Clear();
             contador++;
 
             if (contador == 3) {
-                LCD_Clear();
-                LCD_Set_Cursor(1, 4);
-                LCD_putrs("ALERTA");
-                __delay_ms(2000);
+                cuentaBloqueado();
+                contador = 0;
             }
         }
     }
 }
 
 void modoAbierto() {
-    LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
-    LCD_putrs("      ABIERTO "); //ESCRIBIR UNA CADENA DE CARACTERES
+
+    if (bandera == 1) {
+
+    }
+
+    LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+    LCD_putrs("ABIERTO"); //ESCRIBIR UNA CADENA DE CARACTERES
 
     analogWrite(_PC1, 190);
 
@@ -145,15 +169,17 @@ void modoAbierto() {
 
     if (entrada == 14) {
         buzzer(1200, 80);
-        LCD_Clear(); //LIMPIAR LCD
-        LCD_Set_Cursor(0, 0); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
-        LCD_putrs("      ARMADO "); //ESCRIBIR UNA CADENA DE CARACTERES
         modo = 0;
-        __delay_ms(550);
     }
+
 }
 
 void modoArmado() {
+
+    LCD_Clear(); //LIMPIAR LCD
+    LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+    LCD_putrs("ARMADO"); //ESCRIBIR UNA CADENA DE CARACTERES
+    __delay_ms(550);
 
     analogWrite(_PC1, 250);
 
@@ -161,6 +187,7 @@ void modoArmado() {
 
     if (entrada == 14) {
         buzzer(1200, 80);
+        banderaPassword = 1;
         password();
     }
 }
