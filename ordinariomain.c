@@ -103,6 +103,12 @@ void password() {
 
     if (passwordCompleta[0] == passwordCorrecta[0] && passwordCompleta[1] == passwordCorrecta[1] && passwordCompleta[2] == passwordCorrecta[2] && passwordCompleta[3] == passwordCorrecta[3] && passwordCompleta[4] == passwordCorrecta[4]) {
         modo = 1;
+    } else {
+        LCD_Clear();
+        LCD_Set_Cursor(1, 4);
+        LCD_putrs("INCORRECTO");
+        __delay_ms(2000);
+        LCD_Clear();
     }
 }
 
