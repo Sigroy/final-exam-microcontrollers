@@ -151,10 +151,6 @@ void password() {
 
 void modoAbierto() {
 
-    if (bandera == 1) {
-
-    }
-
     LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
     LCD_putrs("ABIERTO"); //ESCRIBIR UNA CADENA DE CARACTERES
 
@@ -179,11 +175,16 @@ void modoArmado() {
     LCD_Clear(); //LIMPIAR LCD
     LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
     LCD_putrs("ARMADO"); //ESCRIBIR UNA CADENA DE CARACTERES
-    __delay_ms(550);
+    __delay_ms(100);
 
     analogWrite(_PC1, 250);
 
     entrada = keypadread();
+    
+    while (entrada > 14) { //Se queda quí hasta que no se oprima un número de 1 a 15
+        entrada = keypadread();
+        __delay_ms(100);
+    }
 
     if (entrada == 14) {
         buzzer(1200, 80);
