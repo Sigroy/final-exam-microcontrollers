@@ -178,7 +178,8 @@ void password() {
 }
 
 void modoAbierto() {
-
+    LED_VERDE = 1;
+    LED_ROJO = 0;
     LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
     LCD_putrs("ABIERTO"); //ESCRIBIR UNA CADENA DE CARACTERES
 
@@ -205,7 +206,9 @@ void modoAbierto() {
 }
 
 void modoArmado() {
-
+    pinMode(_PE1, OUTPUT);
+    LED_VERDE = 0;
+    LED_ROJO = 1;
     LCD_Clear(); //LIMPIAR LCD
     LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
     LCD_putrs("ARMADO"); //ESCRIBIR UNA CADENA DE CARACTERES
@@ -244,23 +247,14 @@ void main() {
     LCD_Init(lcd); //Inicializar LCD
     LCD_Clear(); //LIMPIAR LCD
 
-    int dato = 0;
-    char contador = 0;
-    LCD_Set_Cursor(1, 0);
-
 
     while (1) {
 
         if (modo == 1) {
-            LED_VERDE = 1;
-            LED_ROJO = 0;
             modoAbierto();
         }
 
         if (modo == 0) {
-            pinMode(_PE1, OUTPUT);
-            LED_VERDE = 0;
-            LED_ROJO = 1;
             modoArmado();
         }
     }
