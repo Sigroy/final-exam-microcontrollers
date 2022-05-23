@@ -49,6 +49,16 @@ DIGITS printNumber(unsigned int dato) {
 }
 DIGITS numeros;
 
+void alarma() {
+    LCD_Clear(); //LIMPIAR LCD
+    LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
+    LCD_putrs("ALARMA"); //ESCRIBIR UNA CADENA DE CARACTERES
+    while (1) {
+        buzzer(1600, 300);
+        buzzer(1800, 300);
+    }
+}
+
 void cuentaBloqueado() {
     LCD_Clear(); //LIMPIAR LCD
     LCD_Set_Cursor(0, 4); //INICIAR CURSOR EN LÍNEA 1 (DE 2) CARACTER 1 (DE 16)
@@ -59,6 +69,9 @@ void cuentaBloqueado() {
         LCD_Set_Cursor(1, 7);
         LCD_putc(cuenta2[i]);
         __delay_ms(1000);
+        if (puerta == 0) {
+            alarma();
+        }
     }
     LCD_Clear();
     banderaPassword = 0;
@@ -76,6 +89,9 @@ void password() {
 
         input = keypadread();
         while (input > 9) {
+            if (puerta == 0) {
+                alarma();
+            }
             input = keypadread();
         }
         passwordEntrada = printNumber(input);
@@ -86,6 +102,9 @@ void password() {
 
         input = keypadread();
         while (input > 9) {
+            if (puerta == 0) {
+                alarma();
+            }
             input = keypadread();
         }
         passwordEntrada = printNumber(input);
@@ -96,6 +115,9 @@ void password() {
 
         input = keypadread();
         while (input > 9) {
+            if (puerta == 0) {
+                alarma();
+            }
             input = keypadread();
         }
         passwordEntrada = printNumber(input);
@@ -106,6 +128,9 @@ void password() {
 
         input = keypadread();
         while (input > 9) {
+            if (puerta == 0) {
+                alarma();
+            }
             input = keypadread();
         }
         passwordEntrada = printNumber(input);
@@ -116,6 +141,9 @@ void password() {
 
         input = keypadread();
         while (input > 9) {
+            if (puerta == 0) {
+                alarma();
+            }
             input = keypadread();
         }
         passwordEntrada = printNumber(input);
@@ -163,9 +191,15 @@ void modoAbierto() {
         __delay_ms(250);
     }
 
+    if (puerta == 0) {
+        buzzer(800, 500);
+    }
+
     if (entrada == 14) {
-        buzzer(1200, 80);
-        modo = 0;
+        if (puerta == 1) {
+            buzzer(1200, 80);
+            modo = 0;
+        }
     }
 
 }
@@ -180,8 +214,11 @@ void modoArmado() {
     analogWrite(_PC2, 255);
 
     entrada = keypadread();
-    
+
     while (entrada > 14) { //Se queda quí hasta que no se oprima un número de 1 a 15
+        if (puerta == 0) {
+            alarma();
+        }
         entrada = keypadread();
         __delay_ms(100);
     }
