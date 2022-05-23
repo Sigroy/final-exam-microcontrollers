@@ -263,30 +263,6 @@ void main() {
             LED_ROJO = 1;
             modoArmado();
         }
-
-        //        numeros = printNumber(entrada);
-        //        LCD_putc(numeros.unidades); //mostrar en pantalla el número tecleado
-        //        __delay_ms(200);
-        //
-        //        contador++;
-        //        if (contador == 1) dato = entrada * 100;
-        //        if (contador == 2) dato = dato + (entrada * 10);
-        //        if (contador == 3) {
-        //            dato = dato + entrada;
-        //            LCD_Set_Cursor(1, 9);
-        //            dato = dato * 2; //dato ahora es una variable, como ejemplo, lo estamos multiplicando por 2
-        //            numeros = printNumber(dato);
-        //            LCD_putc(numeros.millares); //ver el número multiplicado x 2
-        //            LCD_putc(numeros.centenas);
-        //            LCD_putc(numeros.decenas);
-        //            LCD_putc(numeros.unidades);
-        //            __delay_ms(2000);
-        //            LCD_Set_Cursor(1, 0);
-        //            LCD_putrs("                "); //borrar toda la segunda línea de la pantalla
-        //            LCD_Set_Cursor(1, 0); //regresar el cursor a la primer posición de la segunda línea
-        //            contador = 0; //resetear contador
-        //        }
-
     }
 }
 
