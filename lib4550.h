@@ -23,6 +23,7 @@
 #define buttonA PORTCbits.RC4
 #define buttonB PORTCbits.RC5
 #define botonReset PORTEbits.RE3
+#define puerta PORTEbits.RE2
 
 // LEDS
 #define LED0 LATBbits.LATB7
